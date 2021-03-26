@@ -10,10 +10,26 @@ const Stack = createStackNavigator();
 
 export default function StackNavigation() {
     return (
-        <Stack.Navigator>
-            <Stack.Screen name="List" component={List}/>
+        <Stack.Navigator 
+            initialRouteName="Home"
+            screenOptions={{
+                cardStyle: { backgroundColor: '#ffffff'},
+                headerTitle: 'Energy Assist',
+                headerStyle: {
+                    height: 110,
+                    backgroundColor: '#95e5a6',
+                    borderBottomWidth: 5,
+                    borderBottomColor: '#34495e'
+                },
+                headerTitleStyle: {color: '#ffffff', fontSize: 24},
+                headerTitleAlign: 'center',
+                headerBackTitleVisible: true,
+                headerBackTitle: 'Prev'
+            }}
+        >
             <Stack.Screen name="Home" component={Home}/>
-            <Stack.Screen name="Item" component={Item}/>
+            <Stack.Screen name="List" component={List}/>
+            <Stack.Screen name="Detail" component={Item}/>
         </Stack.Navigator>
     )
 }

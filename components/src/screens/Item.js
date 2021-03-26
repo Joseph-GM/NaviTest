@@ -11,10 +11,12 @@ const StyledText = styled.Text`
     font-size: 30px;
     margin-bottom: 10px;
 `;
-export default function Item() {
+export default function Item({route}) {
     return (
         <Container>
             <StyledText>Item</StyledText>
+            <StyledText>ID: {route.params.id}</StyledText>
+            <StyledText>Name: {route.params.name}</StyledText>
         </Container>
     )
 }

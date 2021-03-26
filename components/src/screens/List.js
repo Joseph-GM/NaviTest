@@ -1,6 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
-import Button from '../../Button';
+import { View, Text, Button } from 'react-native'
 import styled from 'styled-components/native';
 
 const Container = styled.View`
@@ -21,18 +20,20 @@ const items = [
 ];
 
 
-export default function List() {
-    const _onPress = item => {};
+export default function List({navigation}) {
+      function _onPress(item) {
+        navigation.navigate('Detail', {id: item._id, name: item.name});
+    }  
 
     return (
         <Container>
             <StyledText>List</StyledText>
             {items.map(item => (
-                <Button 
-                    key={item._id}
-                    title={item.name}
-                    onPress={()=> _onPress(item)}
-                />
+                <Button
+                key = {item._id} 
+                title={item.name}
+                onPress = {() => _onPress(item)}
+            />
             ))}
         </Container>        
     )
